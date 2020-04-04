@@ -27,6 +27,7 @@ app.post("/", (req, res) => {
         imageURL: req.body.imageURL,
         url: req.body.url
     };
+    console.log(new_item);
     var id = makeid(8);
     update_store(id, new_item);
     res.send(id);
