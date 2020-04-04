@@ -3,7 +3,7 @@ var path = require("path");
 var fs = require("fs");
 
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded());
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -70,6 +70,6 @@ function build_html(item) {
         </body></html>`;
 }
 
-app.listen(port, () =>
-    console.log(`Example app listening at http://localhost:${port}`)
+app.listen(PORT, () =>
+    console.log(`Example app listening at http://localhost:${PORT}`)
 );
