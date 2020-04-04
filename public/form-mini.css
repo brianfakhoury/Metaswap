@@ -15,7 +15,7 @@ a {
 
 .form-mini-container{
     position: relative;
-    max-width: 315px;
+    max-width: 365px;
     margin: 0 auto;
     font: normal 14px helvetica;
     text-align: center;
@@ -25,6 +25,15 @@ a {
 .form-mini-container h1{
     color:  #4c565e;
     font-size: 24px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid #6caee0;
+    font-weight: bold;
+    margin: 0;
+}
+
+.form-mini-container h2{
+    color:  #4c565e;
+    font-size: 18px;
     padding-bottom: 30px;
     border-bottom: 2px solid #6caee0;
     font-weight: bold;
@@ -48,7 +57,7 @@ a {
 .form-mini input,
 .form-mini select{
     box-sizing: border-box;
-    width: 240px;
+    width: 290px;
     box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
     padding: 12px 18px;
     border-radius: 10px;

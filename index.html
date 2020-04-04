@@ -4,6 +4,8 @@
         <link rel="stylesheet" href="form-mini.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <script type="text/javascript">
 
             function not_validate(url) {
@@ -19,8 +21,7 @@
 			function checkform() {
 				if (not_validate(document.getElementById("url").value)) {
 					return false;
-				}
-				if (not_validate(document.getElementById("imageURL").value)) {
+				} else if (not_validate(document.getElementById("imageURL").value)) {
 					return false;
 				}
 				return true;
@@ -40,16 +41,19 @@
 
 				    console.log(data);
 			        // build a json object or do something with the form, store in data
-			        $.post('/', data, function(resp) {
-			        	$( ".form-mini-container" ).remove();
 
-			        	var link = document.createElement("a");
+			        if(checkform()) {
+				        $.post('/', data, function(resp) {
+				        	$( ".form-mini-container" ).remove();
 
-			        	link.href = window.location.href + resp;
-			        	link.innerHTML = link.href;
-			        	$("body").append(link);
-			            // do something when it was successful
-			        });
+				        	var link = document.createElement("a");
+
+				        	link.href = window.location.href + resp;
+				        	link.innerHTML = link.href;
+				        	$("body").append(link);
+				            // do something when it was successful
+				        });
+				   	}
 			    });
 			});
 
@@ -58,7 +62,7 @@
 	<body>
 		<div class="form-mini-container">
 
-			<h1>Generate a twitter card with a proper banner</h1>
+			<h2>MetaSwap.in let’s you replace a website’s metadata with your own. When you share your custom link on iMessage, Twitter, Facebook, LinkedIn, etc…, the generated card content is controlled by you, no matter the website</h2>
 
 			<!---->
 			<form class="form-mini" method="POST" onSubmit="return checkform()">
