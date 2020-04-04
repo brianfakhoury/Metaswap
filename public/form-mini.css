@@ -3,9 +3,18 @@ html{
     font: helvetica;
 }
 
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    text-align: center;
+}
+
 .form-mini-container{
     position: relative;
-    top: 25%;
     max-width: 315px;
     margin: 0 auto;
     font: normal 14px helvetica;

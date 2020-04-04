@@ -2,6 +2,8 @@
     <head>
         <title>Twitter Banner Link Shortener</title>
         <link rel="stylesheet" href="form-mini.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
         <script type="text/javascript">
 
             function not_validate(url) {
@@ -23,6 +25,33 @@
 				}
 				return true;
 			}
+
+			$(function() {
+			    $('.form-mini').submit(function(event) {
+			        event.preventDefault(); // Stops browser from navigating away from page
+			        var $inputs = $('.form-mini :input');
+
+				    // not sure if you wanted this, but I thought I'd add it.
+				    // get an associative array of just the values.
+				    var data = {};
+				    $inputs.each(function() {
+				        data[this.name] = $(this).val();
+				    });
+
+				    console.log(data);
+			        // build a json object or do something with the form, store in data
+			        $.post('/', data, function(resp) {
+			        	$( ".form-mini-container" ).remove();
+
+			        	var link = document.createElement("a");
+
+			        	link.href = window.location.href + resp;
+			        	link.innerHTML = link.href;
+			        	$("body").append(link);
+			            // do something when it was successful
+			        });
+			    });
+			});
 
 		</script>
 	</head>
