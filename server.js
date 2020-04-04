@@ -5,6 +5,7 @@ var fs = require("fs");
 const app = express();
 const port = 3000;
 app.use(express.urlencoded());
+app.use(express.static(path.join(__dirname, "public")));
 
 data_dictionary = require("./store.json");
 
