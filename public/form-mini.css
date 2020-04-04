@@ -13,6 +13,13 @@ a {
     text-align: center;
 }
 
+#logo {
+    height: 100px;
+    width: auto;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
 .form-mini-container{
     position: relative;
     max-width: 365px;
