@@ -32,6 +32,15 @@ app.post("/", (req, res) => {
     res.send(id);
 });
 
+function update_store(id, new_item) {
+    data_dictionary[id] = new_item;
+    fs.writeFile("store.json", JSON.stringify(data_dictionary), function(err) {
+        if (err) {
+            console.log(err);
+        }
+    });
+}
+
 function makeid(length) {
     var result = "";
     var characters =
@@ -57,15 +66,6 @@ function build_html(item) {
             window.location.replace("${item.url}");
         </script>
         </body></html>`;
-}
-
-function update_store(id, new_item) {
-    data_dictionary[id] = new_item;
-    fs.writeFile("store.json", JSON.stringify(data_dictionary), function(err) {
-        if (err) {
-            console.log(err);
-        }
-    });
 }
 
 app.listen(port, () =>
