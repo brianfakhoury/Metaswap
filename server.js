@@ -1,11 +1,12 @@
 const express = require("express");
 var path = require("path");
+var fs = require("fs");
 
 const app = express();
 const port = 3000;
 app.use(express.urlencoded());
 
-data_dictionary = {};
+data_dictionary = require("./store.json");
 
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname + "/index.html"));
@@ -26,9 +27,8 @@ app.post("/", (req, res) => {
         imageURL: req.body.imageURL,
         url: req.body.url
     };
-    console.log(new_item);
     var id = makeid(8);
-    data_dictionary[id] = new_item;
+    update_store(id, new_item);
     res.send(id);
 });
 
@@ -57,6 +57,15 @@ function build_html(item) {
             window.location.replace("${item.url}");
         </script>
         </body></html>`;
+}
+
+function update_store(id, new_item) {
+    data_dictionary[id] = new_item;
+    fs.writeFile("store.json", JSON.stringify(data_dictionary), function(err) {
+        if (err) {
+            console.log(err);
+        }
+    });
 }
 
 app.listen(port, () =>
