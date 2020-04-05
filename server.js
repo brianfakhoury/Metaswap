@@ -50,16 +50,19 @@ app.post("/", (req, res) => {
 
 function build_html(item) {
     return `<!DOCTYPE html>
-        <html><head>
-        <title>${item.title}</title>
-        <meta property="og:title" content="${item.title}" />
-        <meta property="og:url" content="${item.url}" />
-        <meta property="og:image" content="${item.imageURL}" />
-        </head><body>
-        <script type="text/javascript">
-            window.location.replace("${item.url}");
-        </script>
-        </body></html>`;
+        <html>
+        <head>
+            <title>${item.title}</title>
+            <meta property="og:title" content="${item.title}" />
+            <meta property="og:url" content="${item.url}" />
+            <meta property="og:image" content="${item.imageURL}" />
+            <script type="text/javascript">
+                window.location.replace("${item.url}");
+            </script>
+        </head>
+        <body>
+        </body>
+        </html>`;
 }
 
 app.listen(PORT, () =>
