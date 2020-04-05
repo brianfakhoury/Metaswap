@@ -66,6 +66,4 @@ function build_html(item) {
         </html>`;
 }
 
-app.listen(PORT, () =>
-    console.log(`Example app listening at http://localhost:${PORT}`)
-);
+app.listen(PORT, () => console.log(`Server is up.`));
