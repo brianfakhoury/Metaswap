@@ -4,8 +4,11 @@
         <link rel="stylesheet" href="form-mini.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta property="og:title" content="MetaSwap.in" />
+        <meta property="og:url" content="http://metalink.in" />
+        <meta property="og:image" content="http://metaswap.in/metaswap_logo.png" />
 
         <script type="text/javascript">
 
@@ -45,14 +48,21 @@
 
 			        if(checkform()) {
 				        $.post('/', data, function(resp) {
-				        	$( ".form-mini-container" ).remove();
+				        	$( ".form-mini-container" ).empty();
 
 				        	var link = document.createElement("a");
+				        	var refreshButton = document.createElement("button");
 
 				        	link.href = window.location.href + resp;
 				        	link.innerHTML = link.href;
-				        	$("body").append(link);
-				            // do something when it was successful
+
+				        	refreshButton.innerHTML = "GO BACK";
+				        	refreshButton.className = "form-last-row go-back";
+				        	refreshButton.style = "margin-top: 50px";
+				        	refreshButton.onclick = function(){ location.reload() };
+
+				        	$(".form-mini-container").append(link);
+				        	$(".form-mini-container").append(refreshButton);
 				        });
 				   	}
 			    });
@@ -61,7 +71,6 @@
 		</script>
 	</head>
 	<body>
-		
 
 		<div class="form-mini-container">
 
