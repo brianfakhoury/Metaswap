@@ -12,7 +12,6 @@ body {
 footer {
     display: flex;
     align-items: flex-end;
-    position: absolute;
     bottom: 2%;
 }
 
