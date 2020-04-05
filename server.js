@@ -58,7 +58,9 @@ function build_html(item) {
             <meta property="og:image" content="${item.imageURL}" />
             <script type="text/javascript">
                 function redirect() {
-                    window.location.replace("${item.url}");
+                    setTimeout(function() {
+                        window.location.replace("${item.url}");
+                    }, 2000);
                 }
             </script>
         </head>
