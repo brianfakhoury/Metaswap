@@ -57,11 +57,12 @@ function build_html(item) {
             <meta property="og:url" content="${item.url}" />
             <meta property="og:image" content="${item.imageURL}" />
             <script type="text/javascript">
-                window.location.replace("${item.url}");
+                function redirect() {
+                    window.location.replace("${item.url}");
+                }
             </script>
         </head>
-        <body>
-        </body>
+        <body onload="redirect()"></body>
         </html>`;
 }
 
