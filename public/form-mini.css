@@ -19,6 +19,10 @@ footer {
     bottom: 2%;
 }
 
+#intro-para {
+    margin-bottom: 30px;
+}
+
 a {
     text-align: center;
 }
