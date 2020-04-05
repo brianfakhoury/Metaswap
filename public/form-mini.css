@@ -9,11 +9,7 @@ body {
     align-items: center;
 }
 
-footer {
-    display: flex;
-    align-items: flex-end;
-    bottom: 2%;
-}
+
 
 .the_footer {
     bottom: 2%;
@@ -21,6 +17,7 @@ footer {
 
 #intro-para {
     margin-bottom: 30px;
+    text-align: left;
 }
 
 a {
@@ -51,7 +48,6 @@ button{
 p {
     margin: 0 auto;
     font: normal 14px helvetica;
-    text-align: center;
     color: #5f5f5f;
 }
 
