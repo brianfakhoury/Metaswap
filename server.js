@@ -55,7 +55,7 @@ function build_html(item) {
             <title>${item.title}</title>
             <meta property="og:title" content="${item.title}" />
             <meta property="og:image" content="${item.imageURL}" />
-            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:card" content="summary_large_image" />
             <script type="text/javascript">
                 function redirect() {
                     window.location.replace("${item.url}");
