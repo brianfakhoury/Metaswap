@@ -54,7 +54,6 @@ function build_html(item) {
         <head>
             <title>${item.title}</title>
             <meta property="og:title" content="${item.title}" />
-            <meta property="og:url" content="${item.url}" />
             <meta property="og:image" content="${item.imageURL}" />
             <script type="text/javascript">
                 function redirect() {
