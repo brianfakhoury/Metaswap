@@ -1,0 +1,7 @@
+{
+  "name": "metaswap",
+  "version": 2,
+  "env": {
+    "MONGODB_URI": "@metaswap-mongodb-uri"
+  }
+}
