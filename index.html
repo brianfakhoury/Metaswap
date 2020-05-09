@@ -1,81 +1,24 @@
-<html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
     <head>
+        <meta charset="utf-8">
         <title>MetaSwap</title>
-        <link rel="stylesheet" href="form-mini.css">
+        <link rel="stylesheet" href="assets/form-mini.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <link rel="shortcut icon" href="icon.ico">
+        <link rel="shortcut icon" href="assets/icon.ico">
         <link rel="apple-touch-icon" href="icon.png">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta property="og:title" content="MetaSwap.in"/>
         <meta property="og:url" content="http://metaswap.in"/>
-        <meta property="og:image" content="http://metaswap.in/metaswap_logo.png"/>
-
-        <script type="text/javascript">
-
-            function not_validate(url) {
-                var pattern = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
-                if (pattern.test(url)) {
-                    return false;
-                }
-                alert(url + " is not a valid url link!");
-                return true;
-
-            }
-
-            function checkform() {
-                if (not_validate(document.getElementById("url").value)) {
-                    return false;
-                } else if (not_validate(document.getElementById("imageURL").value)) {
-                    return false;
-                }
-                return true;
-            }
-
-            $(function () {
-                $('.form-mini').submit(function (event) {
-                    event.preventDefault(); // Stops browser from navigating away from page
-                    var $inputs = $('.form-mini :input');
-
-                    // not sure if you wanted this, but I thought I'd add it. get an associative array of just the values.
-                    var data = {};
-                    $inputs.each(function () {
-                        data[this.name] = $(this).val();
-                    });
-
-                    console.log(data);
-                    // build a json object or do something with the form, store in data
-
-                    if (checkform()) {
-                        $.post('/', data, function (resp) {
-                            $(".form-mini-container").empty();
-
-                            var link = document.createElement("a");
-                            var refreshButton = document.createElement("button");
-
-                            link.href = "http://link.metaswap.in/a/" + resp;
-                            link.innerHTML = link.href;
-
-                            refreshButton.innerHTML = "GO BACK";
-                            refreshButton.className = "form-last-row go-back";
-                            refreshButton.style = "margin-top: 50px";
-                            refreshButton.onclick = function () {
-                                location.reload()
-                            };
-
-                            $(".form-mini-container").append(link);
-                            $(".form-mini-container").append(refreshButton);
-                        });
-                    }
-                });
-            });
-        </script>
+        <meta property="og:image" content="http://metaswap.in/assets/metaswap_logo.png"/>
+        <script src="assets/index.js" charset="utf-8"></script>
     </head>
     <body>
 
         <div class="form-mini-container">
 
-            <img src="metaswap_logo.png" id="logo">
-            <p id="intro-para">MetaSwap.in lets you replace a website’s metadata with your own. When you share your custom link on iMessage, Twitter, Facebook, LinkedIn, etc…, the generated card content is controlled by you, no matter the website.</p>
+            <img src="assets/metaswap_logo.png" id="logo">
+            <p id="intro-para">MetaSwap.in lets you replace a website's metadata with your own. When you share your custom link on iMessage, Twitter, Facebook, LinkedIn, etc..., the generated card content is controlled by you, no matter the website.</p>
 
             <form class="form-mini" method="POST" onsubmit="return checkform()">
                 <div class='form-row'>
