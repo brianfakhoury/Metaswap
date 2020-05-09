@@ -38,7 +38,7 @@ $(function () {
                 var link = document.createElement("a");
                 var refreshButton = document.createElement("button");
 
-                link.href = "https://link.metaswap.in/api/a/" + resp;
+                link.href = "https://link.metaswap.in/a/" + resp;
                 link.innerHTML = link.href;
 
                 refreshButton.innerHTML = "GO BACK";
