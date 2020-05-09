@@ -39,6 +39,11 @@ module.exports = async (req, res) => {
 
     const id = req.query.id;
 
+    if (id.length != 24) {
+        res.send("Invalid ID")
+        return
+    }
+
     const collection = await db.collection("items");
 
     const item = await collection.findOne({
