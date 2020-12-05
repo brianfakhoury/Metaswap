@@ -1,9 +1,6 @@
 {
     "name": "metaswap",
     "version": 2,
-    "env": {
-        "MONGODB_URI": "@metaswap-mongodb-uri"
-    },
     "rewrites": [{
         "source": "/a/:id",
         "destination": "/api/a"
